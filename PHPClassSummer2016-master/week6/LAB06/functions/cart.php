@@ -6,13 +6,39 @@ $fname = filter_input(INPUT_POST, 'fname');
 $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
 
-function saveCart() {
 
-    $sCart = serialize($_SESSION['cart']);
-    return $sCart;
+
+
+
+
+function retreiveCart() {
+    
+    
     
 }
 
+
+
+
+
+
+function saveCart() {
+    $sCart = serialize($_SESSION['cart']);
+    $db = getDatabase();
+    $userid = $_SESSION["uid"];
+    $stmt = $db->prepare("UPDATE users SET cart = :cart WHERE user_id = :user_id");
+
+    $binds = array(
+        ":user_id" => $userid,
+        ":cart" => $sCart
+    );
+    
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        echo "data added!";
+    }else {
+        echo "error data not added";
+    }
+}
 
 function isAdmin() {
     $db = getDatabase();
@@ -167,6 +193,7 @@ function addToCart($id) {
     foreach ($items as $product) {
         if ($product['product_id'] == $id) {
             $_SESSION['cart'][] = $product;
+            saveCart();
             break;
         }
     }
