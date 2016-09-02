@@ -13,6 +13,28 @@ $action = filter_input(INPUT_POST, 'action');
 
 function retreiveCart() {
     
+    $db = getDatabase();
+    $userid = $_SESSION["uid"];
+    //switch to binds!!!!!!!
+    $stmt = $db->prepare("SELECT cart FROM users WHERE user_id = :user_id");
+
+    $binds = array(
+        ":user_id" => $userid
+    );
+
+    $cart = array();
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        $cart = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    foreach ($cart as $carts) {
+        $_SESSION['cart'] = $carts['cart'];
+
+    }
+    $_SESSION['cart'] = unserialize($_SESSION['cart']);
+    
+    return $_SESSION['cart'];
     
     
 }
