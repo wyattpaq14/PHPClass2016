@@ -13,6 +13,14 @@
 
             </ul>
             <ul class="waves-effect right hide-on-med-and-down">
+                <?php if (isAdmin()) : ?>
+                    <li>
+                        <a href="admin.php">
+                            Admin Panel
+                        </a>
+
+                    </li>
+                <?php endif; ?>
                 <li>
                     <a href="account.php">
                         My Account
@@ -34,5 +42,7 @@
         </div>
     </nav>
 <?php endif; ?>
+
+
 
 

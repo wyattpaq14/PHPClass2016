@@ -6,6 +6,28 @@ $fname = filter_input(INPUT_POST, 'fname');
 $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
 
+function isAdmin() {
+    $db = getDatabase();
+    $userid = $_SESSION["uid"];
+    //switch to binds!!!!!!!
+    $stmt = $db->prepare("SELECT admin FROM users WHERE user_id = :user_id");
+
+    $binds = array(
+        ":user_id" => $userid
+    );
+    $admin = array();
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    foreach ($admin as $admins) {
+        $isAdmin = $admins['admin'];
+    }
+
+    return $isAdmin;
+}
+
 function verifyLogin($dbEmail, $username, $dbPassword, $password) {
 
     if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
@@ -56,9 +78,9 @@ function getName() {
 function getLoginState() {
     if ($_SESSION["login"]) {
         return true;
-    } else if (empty($_SESSION["login"])){
+    } else if (empty($_SESSION["login"])) {
         header("Location: login.php");
-        
+
         return false;
     }
 }

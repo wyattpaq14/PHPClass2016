@@ -7,10 +7,10 @@
     <body>
         <?php
         session_start();
-        
+
         include './functions/cart.php';
         getLoginState();
-        
+
 
         /* php processing variables */
         $action = filter_input(INPUT_POST, 'action');

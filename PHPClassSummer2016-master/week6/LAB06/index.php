@@ -21,7 +21,7 @@
         <?php
         include './functions/cart.php';
         include './functions/dbconnect.php';
-        
+
         session_start();
         getLoginState();
         /* php processing variables */
@@ -50,6 +50,8 @@
         }
         include './templates/categories.html.php';
         include './templates/catalog.html.php';
+        var_dump($_SESSION);
+        echo isAdmin();
         ?>
 
     </body>
