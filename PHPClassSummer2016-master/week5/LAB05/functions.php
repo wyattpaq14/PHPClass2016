@@ -35,6 +35,7 @@ function getSites() {
 
     return $results;
 }
+
 //Created function to check for duplicate records in the database
 function dupeCheck($linkboxx) {
 
@@ -57,6 +58,7 @@ function dupeCheck($linkboxx) {
         return 1;
     }
 }
+
 //Created function to validate URLs that were being entered
 function validateRegex() {
 
@@ -69,12 +71,11 @@ function validateRegex() {
     if (!empty($removeDuplicates)) {
         echo "<br>URL added!<br>";
         return $removeDuplicates[0];
-        
-    } 
-    else {
+    } else {
         echo "<br>Error! Invalid URL!<br>";
     }
 }
+
 //Created a function to repopulate the text field
 function repopulateField($linkboxx) {
 

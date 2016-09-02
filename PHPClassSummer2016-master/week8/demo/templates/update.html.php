@@ -8,12 +8,12 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($results as $row): ?>
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['dataone']; ?></td>
-            <td><?php echo $row['datatwo']; ?></td> 
-             </tr>
-    <?php endforeach; ?>
+        <?php foreach ($results as $row): ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['dataone']; ?></td>
+                <td><?php echo $row['datatwo']; ?></td> 
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>

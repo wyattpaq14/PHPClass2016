@@ -6,12 +6,10 @@
     </head>
     <body>
         <?php
-        
-            $myvar = 'hello';
-            $myvar2 = $myvar . ' ' . 'world';
-        
+        $myvar = 'hello';
+        $myvar2 = $myvar . ' ' . 'world';
         ?>
-        
+
         <h1>
             <?php echo $myvar2; ?>
         </h1>

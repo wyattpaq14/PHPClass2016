@@ -15,6 +15,6 @@ function dbconnect() {
         echo $e->getMessage();
         exit();
     }
-    
-    return $db;    
+
+    return $db;
 }

@@ -1,26 +1,27 @@
 <?php
 
-function getAllTestData(){
+function getAllTestData() {
     $db = dbconnect();
-           
+
     $stmt = $db->prepare("SELECT * FROM test");
 
-     $results = array();
-     if ($stmt->execute() && $stmt->rowCount() > 0) {
-         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-     }
+    $results = array();
+    if ($stmt->execute() && $stmt->rowCount() > 0) {
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     return $results;
 }
 
 /*
  * $stmt = $db->prepare("SELECT * FROM test ORDER BY $column $order");
  */
-function searchTest($column, $search){
+
+function searchTest($column, $search) {
     $db = dbconnect();
-           
+
     $stmt = $db->prepare("SELECT * FROM test WHERE $column LIKE :search");
 
-    $search = '%'.$search.'%';
+    $search = '%' . $search . '%';
     $binds = array(
         ":search" => $search
     );
@@ -31,11 +32,10 @@ function searchTest($column, $search){
     return $results;
 }
 
-
 function processAdd() {
-     $action = filter_input(INPUT_POST, 'action');
-            
-    if ( $action === 'insert' ) {
+    $action = filter_input(INPUT_POST, 'action');
+
+    if ($action === 'insert') {
         //saveData();
     }
 }

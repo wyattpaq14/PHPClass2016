@@ -20,9 +20,9 @@
         include './functions/dbData.php';
         include './includes/form1.php';
         include './includes/form2.php';
-        
+
         $rowCount = 0;
-        
+
         //Get all the data with or without being sorted
         $results = getAllCorpData();
 

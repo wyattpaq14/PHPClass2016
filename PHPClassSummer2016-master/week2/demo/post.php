@@ -6,7 +6,6 @@
     </head>
     <body>
         <?php
-           
         /*
          * The idea here is when the user submits the form
          * we can collect the post data from the built in PHP
@@ -24,20 +23,19 @@
         $datatwoVal = filter_input(INPUT_POST, 'datatwo');
         echo $dataoneVal;
         echo $datatwoVal;
-        
         ?>
         <form method="post" action="#">
-            
+
             Data one <input type="text" value="<?php echo $dataoneVal ?>" name="dataone" />
             <br />
             Data two <input type="text" value="<?php echo $datatwoVal ?>" name="datatwo" />
             <br />
-            
+
             <input type="submit" value="Submit" />
-            
+
         </form>
-        
-        
-        
+
+
+
     </body>
 </html>

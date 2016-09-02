@@ -4,11 +4,11 @@ $titles = 10;
 
 $myList = array('Chicken', 'fish', 'rice', 'steak', 'soda');
 $myListLength = count($myList);
-        
+
 $titles = array('rocks', 'is cool', 'stinks');
 
 
-if ( is_int($titles) ) {
+if (is_int($titles)) {
     $title = 'my page title is 10';
 } else {
     $title = 'my page title';
@@ -17,8 +17,6 @@ if ( is_int($titles) ) {
 
 $rand = rand(0, 2);
 $title = 'my page title ' . $titles[$rand];
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,13 +26,13 @@ $title = 'my page title ' . $titles[$rand];
     </head>
     <body>
         <h1><?php echo $title; ?></h1>
-        
+
         <ul>   
-        <?php for ($index = 0; $index < $myListLength; $index++): ?>
-            <li><?php echo $myList[$index] ?> </li>    
-        <?php endfor; ?>
+            <?php for ($index = 0; $index < $myListLength; $index++): ?>
+                <li><?php echo $myList[$index] ?> </li>    
+            <?php endfor; ?>
         </ul> 
-               
-        
+
+
     </body>
 </html>

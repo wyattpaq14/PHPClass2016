@@ -11,19 +11,18 @@
          * http://php.net/manual/en/function.array-unique.php
          * 
          */
-               
-            $emailOnlyRegex = '/^[a-zA-Z0-9$]+[@]{1}[a-zA-Z]+[\.]{1}[a-zA-Z]{2,3}$/';
-            $emailRegex = '/[a-zA-Z0-9$]+[@]{1}[a-zA-Z]+[\.]{1}[a-zA-Z]{2,3}/';
-            
-            $text = 'Hello <strong>My</strong> email is <a href="mailto:test@test.com">test@test.com</a>, <em>please contact me</em>.';
-        
-            preg_match_all($emailRegex, $text, $emailMatches);
-            
-            print_r($emailMatches[0]);
-            echo '<hr />';
-            $removeDuplicates = array_unique($emailMatches[0]);
-            print_r($removeDuplicates);
-        
+
+        $emailOnlyRegex = '/^[a-zA-Z0-9$]+[@]{1}[a-zA-Z]+[\.]{1}[a-zA-Z]{2,3}$/';
+        $emailRegex = '/[a-zA-Z0-9$]+[@]{1}[a-zA-Z]+[\.]{1}[a-zA-Z]{2,3}/';
+
+        $text = 'Hello <strong>My</strong> email is <a href="mailto:test@test.com">test@test.com</a>, <em>please contact me</em>.';
+
+        preg_match_all($emailRegex, $text, $emailMatches);
+
+        print_r($emailMatches[0]);
+        echo '<hr />';
+        $removeDuplicates = array_unique($emailMatches[0]);
+        print_r($removeDuplicates);
         ?>
     </body>
 </html>

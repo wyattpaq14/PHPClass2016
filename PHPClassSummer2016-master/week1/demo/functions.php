@@ -33,8 +33,8 @@
         ?>
 
 
-        <?php if (isset($randColor)):  ?>
-        <br><br><span style="background-color:<?php echo $randColor; ?>">Color: <?php echo $randColor; ?></span>
+        <?php if (isset($randColor)): ?>
+            <br><br><span style="background-color:<?php echo $randColor; ?>">Color: <?php echo $randColor; ?></span>
         <?php endif; ?>
 
 

@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        
-         <!-- Latest compiled and minified CSS -->
+
+        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
         <!-- Optional theme -->
@@ -65,9 +65,9 @@
              * feel free to 
              * <?php echo print_r($results); ?>
              * to see how the array is structured
-             */            
+             */
             ?>
-            
+
             <?php foreach ($results as $row): ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>

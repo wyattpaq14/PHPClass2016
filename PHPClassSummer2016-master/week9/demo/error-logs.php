@@ -6,25 +6,24 @@
     </head>
     <body>
         <?php
-            include './error-log-function.php';
-            
-            
-            try {
-                
-                if ( $badVariable ) {
-                    
-                }                
-                
-            } catch (ErrorException $ex) {
-                
-               
+        include './error-log-function.php';
 
-                logError($ex->getMessage() . ' Line: ' .$ex->getLine() . ' File: '. $ex->getFile());
+
+        try {
+
+            if ($badVariable) {
+                
             }
-            
-            
-            
-            logError('Could not connect to the database.');
+        } catch (ErrorException $ex) {
+
+
+
+            logError($ex->getMessage() . ' Line: ' . $ex->getLine() . ' File: ' . $ex->getFile());
+        }
+
+
+
+        logError('Could not connect to the database.');
         ?>
     </body>
 </html>

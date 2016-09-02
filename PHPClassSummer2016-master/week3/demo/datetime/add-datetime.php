@@ -59,10 +59,10 @@ RUN THE SQL FILE BEFORE YOU CONTINUE WITH THIS DEMO
             <br />
             Data two <input type="text" value="" name="datatwo" />
             <br />
-           
+
             <input type="submit" value="Submit" />
         </form>
-        
+
         <p><a href="view-datetime.php">View Data</a></p>
     </body>
 </html>

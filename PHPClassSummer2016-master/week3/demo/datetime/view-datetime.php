@@ -68,31 +68,31 @@ RUN THE SQL FILE BEFORE YOU CONTINUE WITH THIS DEMO
              * feel free to 
              * <?php echo print_r($results); ?>
              * to see how the array is structured
-             */ 
-            
-            
+             */
+
+
             /*
              * http://us.php.net/manual/en/function.date.php
              *  Desired Text            Code
-                August 07, 2015         date("F d, Y",strtotime($myrow['date']));
-                Friday, August 07, 2015	date("l, F d, Y",strtotime($myrow['date']));
-                Aug 07, 2015            date("M d, Y",strtotime($myrow['date']));
-                07 August 2015          date("d F Y",strtotime($myrow['date']));
-                07 Aug 2015             date("d M Y",strtotime($myrow['date']));
-                Fri, 07 Aug 2015	date("D, d M Y",strtotime($myrow['date']));
+              August 07, 2015         date("F d, Y",strtotime($myrow['date']));
+              Friday, August 07, 2015	date("l, F d, Y",strtotime($myrow['date']));
+              Aug 07, 2015            date("M d, Y",strtotime($myrow['date']));
+              07 August 2015          date("d F Y",strtotime($myrow['date']));
+              07 Aug 2015             date("d M Y",strtotime($myrow['date']));
+              Fri, 07 Aug 2015	date("D, d M Y",strtotime($myrow['date']));
              */
             ?>
-            
+
             <?php foreach ($results as $row): ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['dataone']; ?></td>
                     <td><?php echo $row['datatwo']; ?></td>            
-                    <td><?php echo  date("F j, Y, g:i a",strtotime($row['date'])); ?></td>
+                    <td><?php echo date("F j, Y, g:i a", strtotime($row['date'])); ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
-        
+
         <p><a href="add-datetime.php">Add Data</a></p>
 
     </body>

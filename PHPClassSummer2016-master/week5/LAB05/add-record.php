@@ -23,10 +23,10 @@
             <li role="presentation" class="active"><a href="add-record.php">Add Record</a></li>
             <li role="presentation"><a href="view-search.php">View Records</a></li>
         </ul><br>
-        
+
         <?php $linkboxx = validateRegex(); ?>
-        
-        
+
+
         <form method="get">
             <label class="">Link: </label>
             <input class="form-control" type="text" name="linkbox" value="<?php repopulateField($linkboxx); ?>"/>
@@ -35,8 +35,6 @@
 
 
         <?php
- 
-
         if (dupeCheck($linkboxx) == 0) {
 
 

@@ -6,35 +6,30 @@
     </head>
     <body>
         <?php
-        
-            require './functions/until.php';
-        
-            $email = filter_input(INPUT_POST, 'email');
-            
-            $isValid = true;
-            
-            if (isPostRequest()) {
-                if ( filter_var($email, FILTER_VALIDATE_EMAIL) === false ) {
-                    $isValid = false;
-                }
-                
-                
-                if ($isValid) {
-                    $email = '';
-                }
+        require './functions/until.php';
+
+        $email = filter_input(INPUT_POST, 'email');
+
+        $isValid = true;
+
+        if (isPostRequest()) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+                $isValid = false;
             }
-               
-            
-            
-        
+
+
+            if ($isValid) {
+                $email = '';
+            }
+        }
         ?>
-        
-        <?php if( !$isValid ) : ?>
+
+        <?php if (!$isValid) : ?>
             <h1>Email is invalid</h1>
         <?php endif; ?>
-         <form method="post" action="#">
+        <form method="post" action="#">
             Email<input type="text" name="email" value="<?php echo $email; ?>" />
             <input type="submit" value="Submit" />
-            </form>
+        </form>
     </body>
 </html>

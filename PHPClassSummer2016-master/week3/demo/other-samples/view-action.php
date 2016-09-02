@@ -58,9 +58,9 @@
              * feel free to 
              * <?php echo print_r($results); ?>
              * to see how the array is structured
-             */            
+             */
             ?>
-            
+
             <?php foreach ($results as $row): ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>

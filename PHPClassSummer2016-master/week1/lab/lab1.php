@@ -20,7 +20,7 @@
             <?php for ($tr = 1; $tr <= $tableRows; $tr++): ?>
                 <tr>
                     <?php for ($td = 1; $td <= $tableColumns; $td++): ?>
-                    <?php//Randomize color within the loop for unique colors, rather than a single color ?>
+                        <?php //Randomize color within the loop for unique colors, rather than a single color ?>
                         <?php $randColor = '#' . strtoupper(dechex(rand(0x000000, 0xFFFFFF))); ?>
                         <td style="background-color:<?php echo $randColor; ?>"> <?php echo $randColor; ?> 
                             <span style="background-color:white"><?php echo $randColor; ?></span>

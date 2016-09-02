@@ -39,7 +39,6 @@ function searchCorps() {
         $stmt = $db->prepare("SELECT * FROM corps WHERE $column LIKE :search");
         $binds = array(
             ":search" => $search
-            
         );
         var_dump($stmt);
     }
@@ -69,13 +68,7 @@ function checkSubmit() {
 function resultCount($rowCount) {
     if ($rowCount == 0) {
         return "No results found!";
-    }
-    else if ($rowCount > 0){
+    } else if ($rowCount > 0) {
         return $rowCount . " rows found!";
     }
-
-            
-    
-    
-    
 }

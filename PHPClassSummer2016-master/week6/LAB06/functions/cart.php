@@ -30,8 +30,7 @@ function retreiveCart() {
     $_SESSION['cart'] = unserialize($_SESSION['cart']);
     if (!($_SESSION['cart'])) {
         return $_SESSION['cart'];
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -48,9 +47,9 @@ function saveCart() {
     );
 
     if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-        echo "data added!";
+        return true;
     } else {
-        echo "error data not added";
+        return false;
     }
 }
 
