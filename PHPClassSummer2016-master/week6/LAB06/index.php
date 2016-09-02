@@ -50,8 +50,6 @@
         }
         include './templates/categories.html.php';
         include './templates/catalog.html.php';
-        var_dump($_SESSION);
-        echo isAdmin();
         ?>
 
     </body>

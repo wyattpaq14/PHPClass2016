@@ -6,6 +6,14 @@ $fname = filter_input(INPUT_POST, 'fname');
 $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
 
+function saveCart() {
+
+    $sCart = serialize($_SESSION['cart']);
+    return $sCart;
+    
+}
+
+
 function isAdmin() {
     $db = getDatabase();
     $userid = $_SESSION["uid"];
