@@ -6,13 +6,8 @@ $fname = filter_input(INPUT_POST, 'fname');
 $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
 
-
-
-
-
-
 function retreiveCart() {
-    
+
     $db = getDatabase();
     $userid = $_SESSION["uid"];
     //switch to binds!!!!!!!
@@ -30,19 +25,16 @@ function retreiveCart() {
 
     foreach ($cart as $carts) {
         $_SESSION['cart'] = $carts['cart'];
-
     }
+
     $_SESSION['cart'] = unserialize($_SESSION['cart']);
-    
-    return $_SESSION['cart'];
-    
-    
+    if (!($_SESSION['cart'])) {
+        return $_SESSION['cart'];
+    }
+    else {
+        return false;
+    }
 }
-
-
-
-
-
 
 function saveCart() {
     $sCart = serialize($_SESSION['cart']);
@@ -54,10 +46,10 @@ function saveCart() {
         ":user_id" => $userid,
         ":cart" => $sCart
     );
-    
+
     if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
         echo "data added!";
-    }else {
+    } else {
         echo "error data not added";
     }
 }

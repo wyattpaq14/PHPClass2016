@@ -24,6 +24,7 @@
 
         session_start();
         getLoginState();
+        retreiveCart();
         /* php processing variables */
         $action = filter_input(INPUT_POST, 'action');
         $cartID = filter_input(INPUT_POST, 'id');
@@ -50,7 +51,7 @@
         }
         include './templates/categories.html.php';
         include './templates/catalog.html.php';
-        var_dump(retreiveCart());
+
         ?>
 
     </body>
