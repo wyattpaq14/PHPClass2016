@@ -28,10 +28,11 @@ function retreiveCart() {
     }
 
     $_SESSION['cart'] = unserialize($_SESSION['cart']);
-    if (!($_SESSION['cart'])) {
-        return $_SESSION['cart'];
-    } else {
+    if ($_SESSION['cart'] == "") {
+        unset($_SESSION['cart']);
         return false;
+    } else {
+        return $_SESSION['cart'];
     }
 }
 

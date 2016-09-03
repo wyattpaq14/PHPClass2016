@@ -51,6 +51,7 @@
         }
         include './templates/categories.html.php';
         include './templates/catalog.html.php';
+        
         ?>
 
     </body>
