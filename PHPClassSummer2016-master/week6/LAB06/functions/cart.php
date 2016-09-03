@@ -102,7 +102,6 @@ function getName() {
 
     $db = getDatabase();
     $userid = $_SESSION["uid"];
-    //switch to binds!!!!!!!
     $stmt = $db->prepare("SELECT fname, lname FROM users WHERE user_id = :user_id");
 
     $binds = array(
@@ -184,7 +183,9 @@ function getItemsByCategory($id) {
 }
 
 function emptyCart() {
-    unset($_SESSION['cart']);
+    //unset($_SESSION['cart']);
+    $_SESSION['cart'] = "";
+    saveCart();
 }
 
 function startCart() {
