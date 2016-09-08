@@ -26,7 +26,7 @@
 
         <?php $linkboxx = validateRegex(); ?>
 
-
+        <label>An example would be: http://google.com </label><br> <br>
         <form method="get">
             <label class="">Link: </label>
             <input class="form-control" type="text" name="linkbox" value="<?php repopulateField($linkboxx); ?>"/>
