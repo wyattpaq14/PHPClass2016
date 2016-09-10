@@ -26,10 +26,13 @@
 
         <?php $linkboxx = validateRegex(); ?>
 
-        <label>An example would be: http://google.com </label><br> <br>
+        <?php statusCheck($linkboxx); ?>
+
+
+        <label>An example would be: http://www.google.com </label><br> <br>
         <form method="get">
             <label class="">Link: </label>
-            <input class="form-control" type="text" name="linkbox" value="<?php repopulateField($linkboxx); ?>"/>
+            <input class="form-control" type="text" name="linkbox" value="<?php echo repopulateField($linkboxx); ?>"/>
             <button class="btn btn-default" type="submit" value="submit1">Submit! </button>
         </form>
 
@@ -48,9 +51,12 @@
                 $results = 'Data Added';
             }
         } else {
-            echo "<br>Error! Duplicate link found!";
+            echo "<br><b>Error! Duplicate link found or invalid link!<br></b>";
         }
+        
+        
         ?>
+       
 
 
 
