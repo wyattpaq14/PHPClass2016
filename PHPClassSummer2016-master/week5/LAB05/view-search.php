@@ -26,28 +26,23 @@
             <li role="presentation"><a href="add-record.php">Add Record</a></li>
             <li role="presentation" class="active"><a href="view-search.php">View Records</a></li>
         </ul><br>
-        <?php include './form2.php'; ?>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Site</th>
-                    <th>Date Added</th>
-                </tr>
-            </thead>
 
-            <?php foreach ($results as $row): ?>
-                <tr>
-                    <?php $row['date'] = date("m-d-Y", strtotime($row['date'])); ?>
-                    <td><?php echo $row['site_id']; ?></td>
-                    <td><a href="<?php echo $row['site']; ?>" target="popup"><?php echo $row['site']; ?></a></td>
-                    <td><?php echo $row['date']; ?></td>            
-                </tr>
 
-            <?php endforeach; ?>
-        </table>
+        <div class="form-group">
+            <label for="sel1">Select list:</label>
+            <select class="form-control" id="sel1">
+                <?php foreach ($results as $row): ?>
+
+                    <option><a href="<?php echo $row['site']; ?>" target="popup"><?php echo $row['site']; ?></a></option>
+
+                <?php endforeach; ?>
+            </select>
+        </div>
 
 
 
-    </body>
+
+
+
+</body>
 </html>
