@@ -53,10 +53,8 @@
         } else {
             echo "<br><b>Error! Duplicate link found or invalid link!<br></b>";
         }
-        
-        
         ?>
-       
+
 
 
 
