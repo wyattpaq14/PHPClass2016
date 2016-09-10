@@ -7,19 +7,19 @@
 ?>
 <br>
 <form action="#" method="post">
-    
-<div class="row">
-    <div class="input-field col s12">
-        <select name="edit_iiSelect">
-            <?php foreach ($items as $item): ?>
 
-            <option value="<?php echo $item['product']; ?>"><?php echo $item['product']; ?></option>
+    <div class="row">
+        <div class="input-field col s12">
+            <select name="edit_iiSelect">
+                <?php foreach ($items as $item): ?>
 
-            <?php endforeach; ?>
-        </select>
-        <label>Choose an item</label>
+                    <option value="<?php echo $item['product']; ?>"><?php echo $item['product']; ?></option>
+
+                <?php endforeach; ?>
+            </select>
+            <label>Choose an item</label>
+        </div>
     </div>
-</div>
 
 
     <input type="hidden" name="action" value="edit_ii" />

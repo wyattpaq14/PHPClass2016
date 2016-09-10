@@ -17,18 +17,18 @@
             <label for="last_name">Item Price</label>
         </div>
     </div>
-<div class="row">
-    <div class="input-field col s12">
-        <select>
-            <?php foreach ($allCategories as $Categories): ?>
+    <div class="row">
+        <div class="input-field col s12">
+            <select>
+                <?php foreach ($allCategories as $Categories): ?>
 
-            <option value="<?php echo $Categories['category']; ?>"><?php echo $Categories['category']; ?></option>
+                    <option value="<?php echo $Categories['category']; ?>"><?php echo $Categories['category']; ?></option>
 
-            <?php endforeach; ?>
-        </select>
-        <label>Choose a category</label>
+                <?php endforeach; ?>
+            </select>
+            <label>Choose a category</label>
+        </div>
     </div>
-</div>
 
 
 
