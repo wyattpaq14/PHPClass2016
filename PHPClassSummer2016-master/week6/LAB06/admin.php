@@ -61,8 +61,6 @@
             include_once './templates/admin-templates/edit_c.html.php';
         } else if ($selectAction == 'edit_i') {
             include_once './templates/admin-templates/edit_i.html.php';
-        } else if ($selectAction == 'remove_c') {
-            include_once './templates/admin-templates/remove_c.html.php';
         } else if ($selectAction == 'remove_i') {
             include_once './templates/admin-templates/remove_i.html.php';
         } else {
@@ -73,13 +71,16 @@
 
 
         adminFunctionSelector($action, $edit_iiSelect);
+        
+        
+        
         if (isset($edit_iiSelect) && $action == 'edit_ii') {
             include_once './templates/admin-templates/edit_i-2.html.php';
         }
 
         $removeAction = filter_input(INPUT_POST, 'action');
         $prodID = filter_input(INPUT_POST, 'id');
-        
+
         if ($removeAction == 'Remove') {
             removeProductDB($prodID);
         }

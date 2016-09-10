@@ -1,14 +1,5 @@
 <?php
 
-//some global variables
-
-$price = 0.00;
-$item = "Car";
-$image = '/img/shoe.jpg';
-
-
-
-
 $username = filter_input(INPUT_POST, 'username');
 $password = filter_input(INPUT_POST, 'password');
 $fname = filter_input(INPUT_POST, 'fname');
@@ -16,25 +7,24 @@ $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
 $edit_iiSelect = filter_input(INPUT_POST, 'edit_iiSelect');
 
-function adminFunctionSelector($action, $edit_iiSelect) {
+
+
+function adminFunctionSelector($action) {
 
     if ($action == 'add_cc') {
-
+        
     } else if ($action == 'add_ii') {
-
+        
     } else if ($action == 'edit_cc') {
 
     } else if ($action == 'edit_ii') {
-
-    } else if ($action == 'remove_cc') {
-
+        
     } else if ($action == 'remove_ii') {
-
+        
     } else {
-
+        
     }
 }
-
 
 function removeProductDB($identity) {
 
@@ -52,7 +42,7 @@ function removeProductDB($identity) {
     if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
         $isDeleted = true;
     }
-    
+
     if ($isDeleted) {
         echo "Item Deleted!";
     }
@@ -62,10 +52,7 @@ function getItemInformation($edit_iiSelect) {
 
     $db = getDatabase();
 
-//Gets form input
-//$sortWay = filter_input(INPUT_GET, 'sort');
-//$sortColumn = filter_input(INPUT_GET, 'column');
-//Ran into problem where form values wouldn't be valid causing stmt to be false
+
     $stmt = $db->prepare("SELECT * FROM products WHERE product = :product");
 
 
@@ -88,7 +75,7 @@ function retreiveCart() {
 
     $db = getDatabase();
     $userid = $_SESSION["uid"];
-//switch to binds!!!!!!!
+
     $stmt = $db->prepare("SELECT cart FROM users WHERE user_id = :user_id");
 
     $binds = array(
@@ -135,7 +122,7 @@ function saveCart() {
 function isAdmin() {
     $db = getDatabase();
     $userid = $_SESSION["uid"];
-//switch to binds!!!!!!!
+
     $stmt = $db->prepare("SELECT admin FROM users WHERE user_id = :user_id");
 
     $binds = array(
@@ -214,10 +201,6 @@ function getItems() {
 
     $db = getDatabase();
 
-//Gets form input
-//$sortWay = filter_input(INPUT_GET, 'sort');
-//$sortColumn = filter_input(INPUT_GET, 'column');
-//Ran into problem where form values wouldn't be valid causing stmt to be false
     $stmt = $db->prepare("SELECT * FROM products");
 
 
@@ -232,10 +215,6 @@ function getItems() {
 function getCategories() {
     $db = getDatabase();
 
-//Gets form input
-//$sortWay = filter_input(INPUT_GET, 'sort');
-//$sortColumn = filter_input(INPUT_GET, 'column');
-//Ran into problem where form values wouldn't be valid causing stmt to be false
 
     $stmt = $db->prepare("SELECT * FROM categories");
 
@@ -260,7 +239,6 @@ function getItemsByCategory($id) {
 }
 
 function emptyCart() {
-//unset($_SESSION['cart']);
     $_SESSION['cart'] = "";
     saveCart();
 }

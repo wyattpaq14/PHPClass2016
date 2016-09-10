@@ -26,7 +26,6 @@
                 <option value="edit_i">Item</option>
             </optgroup>
             <optgroup label="Remove">
-                <option value="remove_c">Category</option>
                 <option value="remove_i">Item</option>
             </optgroup>
         </select>
