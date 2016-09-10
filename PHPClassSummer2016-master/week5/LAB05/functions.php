@@ -63,24 +63,38 @@ function dupeCheck($linkboxx) {
 function validateRegex() {
 
     $linkboxx = filter_input(INPUT_GET, 'linkbox');
-    $siteRegex = '/(https?:\/\/[\da-z\.-]+\.[a-z\.]{2,6}[\/\w \.-]+)/';
+    if (isset($linkboxx)) {
+        $siteRegex = '/(https?:\/\/[\da-z\.-]+\.[a-z\.]{2,6}[\/\w \.-]+)/';
 
-    preg_match_all($siteRegex, $linkboxx, $siteMatches);
+        preg_match_all($siteRegex, $linkboxx, $siteMatches);
 
-    $removeDuplicates = array_unique($siteMatches[0]);
-    if (!empty($removeDuplicates)) {
-        echo "<br>URL added!<br>";
-        return $removeDuplicates[0];
+        $removeDuplicates = array_unique($siteMatches[0]);
+        if (!empty($removeDuplicates)) {
+            return $removeDuplicates[0];
+        } else {
+            return false;
+        }
     } else {
-        echo "<br>Error! Invalid URL!<br>";
+        
+    }
+}
+
+function statusCheck($linkboxx) {
+    if (validateRegex() !== false && dupeCheck($linkboxx) == 0 && isset($linkboxx)) {
+        echo "<br><b>URL Added</b><br>";
+    } else {
+        echo "<br><b>URL not added!</b><br>";
     }
 }
 
 //Created a function to repopulate the text field
 function repopulateField($linkboxx) {
+    if (isset($linkboxx)) {
+        if (dupeCheck($linkboxx) == 0 || !empty(validateRegex())) {
 
-    if (dupeCheck($linkboxx) == 0 || !empty(validateRegex())) {
-
-        echo $linkboxx;
+            return $linkboxx;
+        }
+    } else {
+        
     }
 }

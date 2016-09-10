@@ -66,7 +66,7 @@
             // close curl resource to free up system resources 
             curl_close($curl);
         } else {
-            echo "<br> Please hit the submit button! ";
+            echo "<br> Please hit the submit button!";
         }
         ?>
     <curloutput>
