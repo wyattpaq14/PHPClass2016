@@ -44,11 +44,30 @@
         $cartCount = cartCount();
 
 
-        include './templates/categories.html.php';
-        include './templates/admin.html.php';
-        include './templates/admin-fields.html.php';
-        ?>
+        include_once './templates/categories.html.php';
+        include_once './templates/admin.html.php';
+        include_once './templates/admin-fields.html.php';
+
+
+        if ($selectAction == 'add_c') {
+            include_once './templates/admin-templates/add_c.html.php';
+        } else if ($selectAction == 'add_i') {
+            include_once './templates/admin-templates/add_i.html.php';
+        } else if ($selectAction == 'edit_c') {
+            include_once './templates/admin-templates/edit_c.html.php';
+        } else if ($selectAction == 'edit_i') {
+            include_once './templates/admin-templates/edit_i.html.php';
+        } else if ($selectAction == 'remove_c') {
+            include_once './templates/admin-templates/remove_c.html.php';
+        } else if ($selectAction == 'remove_i') {
+            include_once './templates/admin-templates/remove_i.html.php';
+        } else {
+            
+        }
         
+        adminFunctionShit($action);
+        ?>
+
 
     </body>
 </html>

@@ -6,6 +6,21 @@ $fname = filter_input(INPUT_POST, 'fname');
 $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
 
+
+function adminFunctionShit($action) {
+    
+   if ($action == 'add_cc') {
+       echo "ADD_CC";
+   }
+    
+    
+    
+    
+    
+    
+}
+
+
 function retreiveCart() {
 
     $db = getDatabase();
