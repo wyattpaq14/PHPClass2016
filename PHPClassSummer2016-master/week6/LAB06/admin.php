@@ -42,6 +42,8 @@
         startCart();
         $allCategories = getCategories();
         $cartCount = cartCount();
+        $items = getItems();
+
 
 
         include_once './templates/categories.html.php';
@@ -65,7 +67,7 @@
             
         }
         
-        adminFunctionShit($action);
+        adminFunctionSelector($action, $edit_iiSelect);
         ?>
 
 

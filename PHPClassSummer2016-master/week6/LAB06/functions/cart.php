@@ -5,23 +5,24 @@ $password = filter_input(INPUT_POST, 'password');
 $fname = filter_input(INPUT_POST, 'fname');
 $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
+$edit_iiSelect = filter_input(INPUT_POST, 'edit_iiSelect');
 
-function adminFunctionShit($action) {
+function adminFunctionSelector($action, $edit_iiSelect) {
 
     if ($action == 'add_cc') {
         echo "ADD_CC";
     } else if ($action == 'add_ii') {
         echo "ADD_II";
-    } else if ($action == 'add_ii') {
-        echo "ADD_II";
-    } else if ($action == 'add_ii') {
-        echo "ADD_II";
-    } else if ($action == 'add_ii') {
-        echo "ADD_II";
-    } else if ($action == 'add_ii') {
-        echo "ADD_II";
-    } else if ($action == 'add_ii') {
-        echo "ADD_II";
+    } else if ($action == 'edit_cc') {
+        echo "EDIT_CC";
+    } else if ($action == 'edit_ii') {
+        echo "EDIT_II " . $edit_iiSelect;
+    } else if ($action == 'remove_cc') {
+        echo "remove_cc";
+    } else if ($action == 'remove_ii') {
+        echo "remove_ii";
+    } else  {
+        echo "ship";
     }
 }
 
@@ -159,7 +160,9 @@ function getItems() {
     //$sortWay = filter_input(INPUT_GET, 'sort');
     //$sortColumn = filter_input(INPUT_GET, 'column');
     //Ran into problem where form values wouldn't be valid causing stmt to be false
-
+    if (isset($action) && $action == 'edit_ii') {
+        
+    }
     $stmt = $db->prepare("SELECT * FROM products");
 
 
@@ -170,6 +173,7 @@ function getItems() {
     }
     return $items;
 }
+
 
 function getCategories() {
     $db = getDatabase();
