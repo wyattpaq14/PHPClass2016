@@ -47,7 +47,7 @@
 
 
         include './templates/categories.html.php';
-        include './templates/account-fields.php';
+        include './templates/account-fields.html.php';
         ?>
 
     </body>

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Shopping Cart</title>
+        <title>Admin Panel</title>
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
@@ -14,9 +14,7 @@
     <body style="width: 90%; margin: 0 auto;">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-
-
-
+        <script type="text/javascript" src="js/initselect.js"></script>
 
         <?php
         include './functions/cart.php';
@@ -48,8 +46,9 @@
 
         include './templates/categories.html.php';
         include './templates/admin.html.php';
+        include './templates/admin-fields.html.php';
         ?>
-
+        
 
     </body>
 </html>
