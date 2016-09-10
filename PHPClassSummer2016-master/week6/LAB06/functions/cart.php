@@ -19,19 +19,42 @@ $edit_iiSelect = filter_input(INPUT_POST, 'edit_iiSelect');
 function adminFunctionSelector($action, $edit_iiSelect) {
 
     if ($action == 'add_cc') {
-        echo "ADD_CC";
+
     } else if ($action == 'add_ii') {
-        echo "ADD_II";
+
     } else if ($action == 'edit_cc') {
-        echo "EDIT_CC";
+
     } else if ($action == 'edit_ii') {
-        echo "EDIT_II ";
+
     } else if ($action == 'remove_cc') {
-        echo "remove_cc";
+
     } else if ($action == 'remove_ii') {
-        echo "remove_ii";
+
     } else {
-        echo "ship";
+
+    }
+}
+
+
+function removeProductDB($identity) {
+
+    $db = getDatabase();
+
+    $id = $identity;
+
+    $stmt = $db->prepare("DELETE FROM products where product_id = :id");
+
+    $binds = array(
+        ":id" => $id
+    );
+
+    $isDeleted = false;
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        $isDeleted = true;
+    }
+    
+    if ($isDeleted) {
+        echo "Item Deleted!";
     }
 }
 
@@ -39,10 +62,10 @@ function getItemInformation($edit_iiSelect) {
 
     $db = getDatabase();
 
-    //Gets form input
-    //$sortWay = filter_input(INPUT_GET, 'sort');
-    //$sortColumn = filter_input(INPUT_GET, 'column');
-    //Ran into problem where form values wouldn't be valid causing stmt to be false
+//Gets form input
+//$sortWay = filter_input(INPUT_GET, 'sort');
+//$sortColumn = filter_input(INPUT_GET, 'column');
+//Ran into problem where form values wouldn't be valid causing stmt to be false
     $stmt = $db->prepare("SELECT * FROM products WHERE product = :product");
 
 
@@ -65,7 +88,7 @@ function retreiveCart() {
 
     $db = getDatabase();
     $userid = $_SESSION["uid"];
-    //switch to binds!!!!!!!
+//switch to binds!!!!!!!
     $stmt = $db->prepare("SELECT cart FROM users WHERE user_id = :user_id");
 
     $binds = array(
@@ -112,7 +135,7 @@ function saveCart() {
 function isAdmin() {
     $db = getDatabase();
     $userid = $_SESSION["uid"];
-    //switch to binds!!!!!!!
+//switch to binds!!!!!!!
     $stmt = $db->prepare("SELECT admin FROM users WHERE user_id = :user_id");
 
     $binds = array(
@@ -191,10 +214,10 @@ function getItems() {
 
     $db = getDatabase();
 
-    //Gets form input
-    //$sortWay = filter_input(INPUT_GET, 'sort');
-    //$sortColumn = filter_input(INPUT_GET, 'column');
-    //Ran into problem where form values wouldn't be valid causing stmt to be false
+//Gets form input
+//$sortWay = filter_input(INPUT_GET, 'sort');
+//$sortColumn = filter_input(INPUT_GET, 'column');
+//Ran into problem where form values wouldn't be valid causing stmt to be false
     $stmt = $db->prepare("SELECT * FROM products");
 
 
@@ -209,10 +232,10 @@ function getItems() {
 function getCategories() {
     $db = getDatabase();
 
-    //Gets form input
-    //$sortWay = filter_input(INPUT_GET, 'sort');
-    //$sortColumn = filter_input(INPUT_GET, 'column');
-    //Ran into problem where form values wouldn't be valid causing stmt to be false
+//Gets form input
+//$sortWay = filter_input(INPUT_GET, 'sort');
+//$sortColumn = filter_input(INPUT_GET, 'column');
+//Ran into problem where form values wouldn't be valid causing stmt to be false
 
     $stmt = $db->prepare("SELECT * FROM categories");
 
@@ -237,7 +260,7 @@ function getItemsByCategory($id) {
 }
 
 function emptyCart() {
-    //unset($_SESSION['cart']);
+//unset($_SESSION['cart']);
     $_SESSION['cart'] = "";
     saveCart();
 }

@@ -76,6 +76,13 @@
         if (isset($edit_iiSelect) && $action == 'edit_ii') {
             include_once './templates/admin-templates/edit_i-2.html.php';
         }
+
+        $removeAction = filter_input(INPUT_POST, 'action');
+        $prodID = filter_input(INPUT_POST, 'id');
+        
+        if ($removeAction == 'Remove') {
+            removeProductDB($prodID);
+        }
         ?>
 
 

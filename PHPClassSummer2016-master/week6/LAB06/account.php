@@ -48,6 +48,29 @@
 
         include './templates/categories.html.php';
         include './templates/account-fields.html.php';
+        
+        if ($action === 'Submit1') {
+        if (verifyName($fname, $lname)) {
+            $db = getDatabase();
+            $stmt = $db->prepare("UPDATE users SET email = :email, password = :password, fname = :fname, lname = :lname WHERE user_id = :user_id");
+
+            $binds = array(
+                ":email" => $username,
+                ":password" => $password,
+                ":fname" => $fname,
+                ":lname" => $lname,
+                ":user_id" => $_SESSION['uid']
+            );
+            if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+
+                if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+                    $results = 'Data Added';
+                }
+            } else {
+                echo "email verification failed!";
+            }
+        }
+    }
         ?>
 
     </body>
