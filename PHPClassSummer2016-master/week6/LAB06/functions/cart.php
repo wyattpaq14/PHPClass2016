@@ -6,20 +6,24 @@ $fname = filter_input(INPUT_POST, 'fname');
 $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
 
-
 function adminFunctionShit($action) {
-    
-   if ($action == 'add_cc') {
-       echo "ADD_CC";
-   }
-    
-    
-    
-    
-    
-    
-}
 
+    if ($action == 'add_cc') {
+        echo "ADD_CC";
+    } else if ($action == 'add_ii') {
+        echo "ADD_II";
+    } else if ($action == 'add_ii') {
+        echo "ADD_II";
+    } else if ($action == 'add_ii') {
+        echo "ADD_II";
+    } else if ($action == 'add_ii') {
+        echo "ADD_II";
+    } else if ($action == 'add_ii') {
+        echo "ADD_II";
+    } else if ($action == 'add_ii') {
+        echo "ADD_II";
+    }
+}
 
 function retreiveCart() {
 
