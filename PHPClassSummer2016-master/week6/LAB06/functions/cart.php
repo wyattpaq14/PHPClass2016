@@ -9,20 +9,22 @@ $edit_iiSelect = filter_input(INPUT_POST, 'edit_iiSelect');
 
 
 
-function adminFunctionSelector($action) {
+function saveCart() {
+    $db = getDatabase();
+    $sCart = serialize($_SESSION['cart']);
+    
+    $userid = $_SESSION["uid"];
+    $stmt = $db->prepare("UPDATE users SET cart = :cart WHERE user_id = :user_id");
 
-    if ($action == 'add_cc') {
-        
-    } else if ($action == 'add_ii') {
-        
-    } else if ($action == 'edit_cc') {
+    $binds = array(
+        ":user_id" => $userid,
+        ":cart" => $sCart
+    );
 
-    } else if ($action == 'edit_ii') {
-        
-    } else if ($action == 'remove_ii') {
-        
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        return true;
     } else {
-        
+        return false;
     }
 }
 
@@ -101,23 +103,7 @@ function retreiveCart() {
     }
 }
 
-function saveCart() {
-    $sCart = serialize($_SESSION['cart']);
-    $db = getDatabase();
-    $userid = $_SESSION["uid"];
-    $stmt = $db->prepare("UPDATE users SET cart = :cart WHERE user_id = :user_id");
 
-    $binds = array(
-        ":user_id" => $userid,
-        ":cart" => $sCart
-    );
-
-    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 function isAdmin() {
     $db = getDatabase();
