@@ -16,6 +16,15 @@
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <nav>
+            <div class="nav-wrapper blue">
+                <a href="#" class="brand-logo">&nbsp; Add Page</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="view.php">View</a></li>
+                    <li><a href="add.php">Add</a></li>
+                </ul>
+            </div>
+        </nav>
         <?php include './includes/siteForm.php'; ?>
 
 

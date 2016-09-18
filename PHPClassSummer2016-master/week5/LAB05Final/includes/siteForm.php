@@ -12,7 +12,7 @@
         </div>
 
         <input type="hidden" name="action" value="Submit2" />
-        <input class="btn btn-primary" style="width: 100%;" type="submit" value="Submit" />
+        <input class="waves-effect waves-light btn blue" style="width: 100%;" type="submit" value="Submit" />
 
     </fieldset>            
 </form>

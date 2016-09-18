@@ -7,6 +7,39 @@
  */
 include './dbconnect.php';
 
+function getSites() {
+    $LINKS = '';
+    $db = getDatabase();
+
+
+    $stmt = $db->prepare("SELECT * FROM sites");
+    $LINKS = array();
+    if ($stmt->execute() && $stmt->rowCount() > 0) {
+        $LINKS = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return $LINKS;
+}
+
+function getSiteLinks($selectedURL) {
+
+    $db = getDatabase();
+
+
+    $stmt = $db->prepare("SELECT link FROM sites JOIN sitelinks ON sites.site_id = sitelinks.site_id WHERE sites.site = :url");
+
+    $binds = array(
+        ":url" => $selectedURL
+    );
+
+
+    $linkResults = array();
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        $linkResults = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return $linkResults;
+}
+
 function isPostRequest() {
     return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST' );
 }

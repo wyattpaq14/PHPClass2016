@@ -2,7 +2,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Shopping Cart</title>
+        <title>View Links</title>
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
@@ -15,9 +15,31 @@
     <body style="width:800px; margin:0 auto;">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <nav>
+            <div class="nav-wrapper blue">
+                <a href="#" class="brand-logo">&nbsp; View Page</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="view.php">View</a></li>
+                    <li><a href="add.php">Add</a></li>
+                </ul>
+            </div>
+        </nav>
+        <?php ?>
+        <?php
+        include './functions.php';
+        $URLs = getSites();
+        include './includes/sitelinksForm.php';
+
+        if (isPostRequest()) {
+            $selectedURL = filter_input(INPUT_POST, 'selectedOption');
+            $URLs = getSiteLinks($selectedURL);
+            foreach ($URLs as $URL):
+                echo '<a href="' . $URL['link'] . '">' . $URL['link'] . "</a><br>";
+            endforeach;
+        }
+        ?>
 
 
-        <?php include './includes/sitelinksForm.php'; ?>
 
 
 
