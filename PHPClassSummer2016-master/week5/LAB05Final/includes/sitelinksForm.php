@@ -1,8 +1,6 @@
-
+<script type="text/javascript" src="js/init.js"></script>
 <form method="POST">
     <fieldset>
-        
-
         <select class="form-control" name="column">
             <option value="id">ID</option>
             <option value="corp">Corporation</option>
@@ -18,4 +16,4 @@
         <a  class="btn btn-default" href="view-action.php">Reset</a>
     </fieldset>    
 </form>
-<br>
+

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="js/init.js"></script>
 <form method="POST">
     <fieldset>
         <legend>Search</legend>
