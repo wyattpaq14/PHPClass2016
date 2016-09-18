@@ -1,19 +1,7 @@
-<br>
-<form method="get">
+
+<form method="POST">
     <fieldset>
-        <legend>Sort</legend>
-        <div class="radio">
-            <label>
-                <input type="radio" name="sort" id="optionsRadios1" value="asc">
-                Ascending
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <input type="radio" name="sort" id="optionsRadios1" value="desc">
-                Descending
-            </label>
-        </div>
+        
 
         <select class="form-control" name="column">
             <option value="id">ID</option>
