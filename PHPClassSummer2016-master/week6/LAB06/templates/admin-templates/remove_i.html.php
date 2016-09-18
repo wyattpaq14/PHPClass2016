@@ -30,11 +30,7 @@
     </tbody>
 </table>
 
-<?php 
-
-    $removeAction = filter_input(INPUT_POST, 'action');
-    $prodID = filter_input(INPUT_POST, 'id');
-
-
-
+<?php
+$removeAction = filter_input(INPUT_POST, 'action');
+$prodID = filter_input(INPUT_POST, 'id');
 ?>

@@ -39,7 +39,6 @@ function collectLinks($output) {
     return $removeDuplicates;
 }
 
-
 function insertSite($url, $links) {
     $db = getDatabase();
 
@@ -47,7 +46,7 @@ function insertSite($url, $links) {
 
     $stmt = $db->prepare("INSERT INTO sites SET site = :link, date = NOW()");
 
-        $site_id = $db->lastInsertId();
+    $site_id = $db->lastInsertId();
 
 
     $binds = array(
@@ -59,8 +58,8 @@ function insertSite($url, $links) {
         $result = 'Site Added';
 
 
-                $site_id = $db->lastInsertId();
-        
+        $site_id = $db->lastInsertId();
+
 
         $stmt = $db->prepare("INSERT INTO sitelinks SET link = :link, site_id = :site_id");
 
@@ -70,9 +69,6 @@ function insertSite($url, $links) {
             );
             $stmt->execute($binds);
         }
-
-
-
     } else {
         $result = 'Site Not Added';
     }

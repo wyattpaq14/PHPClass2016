@@ -7,12 +7,10 @@ $lname = filter_input(INPUT_POST, 'lname');
 $action = filter_input(INPUT_POST, 'action');
 $edit_iiSelect = filter_input(INPUT_POST, 'edit_iiSelect');
 
-
-
 function saveCart() {
     $db = getDatabase();
     $sCart = serialize($_SESSION['cart']);
-    
+
     $userid = $_SESSION["uid"];
     $stmt = $db->prepare("UPDATE users SET cart = :cart WHERE user_id = :user_id");
 
@@ -102,8 +100,6 @@ function retreiveCart() {
         return $_SESSION['cart'];
     }
 }
-
-
 
 function isAdmin() {
     $db = getDatabase();

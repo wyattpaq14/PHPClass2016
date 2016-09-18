@@ -4,7 +4,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 ?>
 <br>
 <form action="#" method="post">
@@ -14,8 +13,8 @@
             <label for="first_name">Category Name</label>
         </div>
     </div>
-    
+
     <input type="hidden" name="action" value="add_cc" />
     <button type="submit" class="waves-effect waves-light btn-large red" value="add_cc" style="width:100%; margin:0 auto;">Add Category</button>
-<?php $catNam = filter_input(INPUT_POST, 'catname') ?>
+    <?php $catNam = filter_input(INPUT_POST, 'catname') ?>
 </form>
